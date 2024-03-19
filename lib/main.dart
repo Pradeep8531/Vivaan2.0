@@ -63,6 +63,24 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
+  void _addAttendanceRecord() {
+    String enteredText = _textController.text.trim();
+    if (enteredText.isNotEmpty) {
+      AttendanceRecord newRecord = AttendanceRecord(
+        name: enteredText,
+        registrationNumber: "21BCEXXXXX",
+        time: "Time",
+        isPresent: true,
+      );
+
+      setState(() {
+        attendanceRecords.add(newRecord);
+      });
+      _textController.clear();
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +109,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
               Container(
                   padding: const EdgeInsets.all(16.0),
                   child: Text("Manual Entry")),
