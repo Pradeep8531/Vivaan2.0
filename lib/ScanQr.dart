@@ -15,6 +15,7 @@ class _ScanQRState extends State<ScanQR> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Scan QR Code"),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Container(
         padding: EdgeInsets.all(20),
@@ -40,7 +41,7 @@ class _ScanQRState extends State<ScanQR> {
             ),
 
             // Button to scan QR code
-            TextButton(
+            ElevatedButton(
               onPressed: () async {
                 // Request camera permission
                 var status = await Permission.camera.request();
@@ -70,6 +71,10 @@ class _ScanQRState extends State<ScanQR> {
               child: Text(
                 "Open Scanner",
                 style: TextStyle(color: Colors.indigo[900]),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
             ),
           ],
